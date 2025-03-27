@@ -130,10 +130,11 @@ export const App: React.FC = () => {
 
   const clearError = useCallback(() => setErrorMessage(ErrorMessage.NONE), []);
 
-  const filteredTodos: Todo[] = useMemo(
-    () => filterTodo(todos, filterBy),
-    [todos, filterBy],
-  );
+  const filteredTodos: Todo[] = useMemo(() => {
+    const a = filterTodo(todos, filterBy);
+
+    return a;
+  }, [todos, filterBy]);
 
   if (!todoApi.USER_ID) {
     return <UserWarning />;
